@@ -161,6 +161,7 @@ eksctl delete cluster --region=us-east-1 --name=hub-cluster
 - ![ArgoCD-hub-spoke-25](./Images/ArgoCD-hub-spoke-25.png)
 - ![ArgoCD-hub-spoke-26](./Images/ArgoCD-hub-spoke-26.png)
 - ![ArgoCD-hub-spoke-27](./Images/ArgoCD-hub-spoke-27.png)
+- ![ArgoCD-hub-spoke-28](./Images/ArgoCD-hub-spoke-28.png)
 
 --- 
 
