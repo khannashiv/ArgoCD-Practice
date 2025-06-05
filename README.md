@@ -117,7 +117,7 @@ echo -n "XXXXXXXX" | base64 -d
 ```
 ### ArgoCD Login and Cluster Registration Commands
 ```bash
-argocd login
+# This <public-IP:port i.e. 44.192.96.5:30086 > points to argocd server ( Node of the kubernetes cluster) which is installed on hub kubernetes cluster and IP belongs to 1 of the node of kubernetes cluster since we have 2 nodes per cluster in this setup. Port number i.e. 30086 is the node port where argocd server is running. 
 argocd login 44.192.96.5:30086 --username admin --password XXXXX
 argocd cluster list
 argocd cluster list --server 44.192.96.5:30086
