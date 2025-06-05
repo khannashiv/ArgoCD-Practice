@@ -13,21 +13,21 @@
   - [Sync Applications](#sync-applications)
 
 ### Architecture Overview
-
+```mermaid
 flowchart TD
-    subgraph Hub Cluster
+    subgraph Hub_Cluster
         A[ArgoCD Server]
     end
 
-    subgraph Spoke Cluster 1
-        B[Kubernetes API + Applications]
+    subgraph Spoke_Cluster_1
+        B[Kubernetes API<br/>+<br/>Applications]
     end
 
-    subgraph Spoke Cluster 2
-        C[Kubernetes API + Applications]
+    subgraph Spoke_Cluster_2
+        C[Kubernetes API<br/>+<br/>Applications]
     end
 
-    D[Git Repository (App Manifests)]
+    D[Git Repository<br/>(App Manifests)]
 
     D -- "GitOps Sync" --> A
     A -- "App Deploy/Sync" --> B
@@ -37,6 +37,7 @@ flowchart TD
     style B fill:#bbf,stroke:#333,stroke-width:2px
     style C fill:#bbf,stroke:#333,stroke-width:2px
     style D fill:#cfc,stroke:#333,stroke-width:2px
+```
 
 
 ### Prerequisites
