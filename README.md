@@ -34,16 +34,17 @@
    - Create Kubernetes manifests for your applications in a Git repository. Ensure that the manifests are structured to be compatible with ArgoCD.
    - Example structure:
      ```
-     ├── apps
-     │   ├── app1
-     │   │   └── kustomization.yaml
-     │   └── app2
-     │       └── kustomization.yaml
      └── clusters
+         ├── hub-cluster
          ├── spoke-cluster1
-         │   └── app1.yaml
+            └── kustomize-guestbook/
+                ├── guestbook-ui-deployment.yaml
+                    ├── guestbook-ui-svc.yaml
+                    └── kustomization.yaml
          └── spoke-cluster2
-             └── app2.yaml
+                └── sync-waves/
+                    └── manifests.yaml 
+
      ```    
 4. **Create ArgoCD Applications**
    - Use the ArgoCD CLI or UI to create applications that point to the manifests in your Git repository.
