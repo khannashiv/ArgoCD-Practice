@@ -119,7 +119,7 @@ echo -n "XXXXXXXX" | base64 -d
 argocd login
 argocd login 44.192.96.5:30086 --username admin --password XXXXX
 argocd cluster list
-argocd cluster list 44.192.96.5:30086
+argocd cluster list --server 44.192.96.5:30086
 argocd cluster add iam-root-account@spoke-cluster-1.us-east-1.eksctl.io --server 44.192.96.5:30086
 argocd cluster add iam-root-account@spoke-cluster-2.us-east-1.eksctl.io --server 44.192.96.5:30086
 argocd cluster list -o json
