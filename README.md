@@ -90,7 +90,7 @@ This setup allows you to manage multiple Kubernetes clusters using GitOps princi
 - [ArgoCD CLI Reference](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/)
 
 --- 
-**Outcomes of hands-on**
+## Outcomes of Hands-On
 
 - ![ArgoCD-hub-spoke-1](./Images/ArgoCD-hub-spoke-1.png)
 - ![ArgoCD-hub-spoke-2](./Images/ArgoCD-hub-spoke-2.png)
@@ -120,3 +120,4 @@ This setup allows you to manage multiple Kubernetes clusters using GitOps princi
 - ![ArgoCD-hub-spoke-26](./Images/ArgoCD-hub-spoke-26.png)
 - ![ArgoCD-hub-spoke-27](./Images/ArgoCD-hub-spoke-27.png)
 
+--- 
