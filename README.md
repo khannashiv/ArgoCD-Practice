@@ -13,7 +13,7 @@
   - [Sync Applications](#sync-applications)
 
 ### Architecture Overview
-![Architecture](https://raw.githubusercontent.com/ArgoCD-Examples/multi-cluster-gitops/main/architecture.png)
+![Architecture](https://argo-cd.readthedocs.io/en/stable/assets/argocd_architecture.png)
 ### Prerequisites
 - Kubernetes clusters (1 hub cluster and multiple spoke clusters)
 - ArgoCD installed on the hub cluster
