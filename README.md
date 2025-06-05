@@ -13,33 +13,8 @@
   - [Sync Applications](#sync-applications)
 
 ### Architecture Overview
-```mermaid
-flowchart TD
-    subgraph Hub_Cluster
-        A[ArgoCD Server]
-    end
 
-    subgraph Spoke_Cluster_1
-        B[Kubernetes API<br/>+<br/>Applications]
-    end
-
-    subgraph Spoke_Cluster_2
-        C[Kubernetes API<br/>+<br/>Applications]
-    end
-
-    D[Git Repository<br/>(App Manifests)]
-
-    D -- "GitOps Sync" --> A
-    A -- "App Deploy/Sync" --> B
-    A -- "App Deploy/Sync" --> C
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#cfc,stroke:#333,stroke-width:2px
-```
-
-
+![ArgoCD Hub-Spoke Architecture](./Images/ArgoCD-Hub-Spoke-Architecture.png)
 ### Prerequisites
 - Kubernetes clusters (1 hub cluster and multiple spoke clusters)
 - ArgoCD installed on the hub cluster
