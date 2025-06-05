@@ -14,31 +14,20 @@
 
 ### Architecture Overview
 
-## Custom Architecture Diagram
-
-Below is a conceptual architecture diagram illustrating the hub-and-spoke model using ArgoCD and GitOps:
-
-> **Note:** GitHub and some markdown viewers do not natively render Mermaid diagrams.  
-> To view the architecture diagram, use a markdown editor or platform that supports Mermaid (such as VS Code with the Mermaid extension, or GitHub's web interface with the appropriate feature enabled).
-
-<details>
-<summary>Click to view Mermaid Architecture Diagram</summary>
-
-```mermaid
 flowchart TD
     subgraph Hub Cluster
         A[ArgoCD Server]
     end
 
     subgraph Spoke Cluster 1
-        B[Kubernetes API<br>+ Applications]
+        B[Kubernetes API + Applications]
     end
 
     subgraph Spoke Cluster 2
-        C[Kubernetes API<br>+ Applications]
+        C[Kubernetes API + Applications]
     end
 
-    D[Git Repository<br>(App Manifests)]
+    D[Git Repository (App Manifests)]
 
     D -- "GitOps Sync" --> A
     A -- "App Deploy/Sync" --> B
@@ -48,16 +37,6 @@ flowchart TD
     style B fill:#bbf,stroke:#333,stroke-width:2px
     style C fill:#bbf,stroke:#333,stroke-width:2px
     style D fill:#cfc,stroke:#333,stroke-width:2px
-```
-
-</details>
-
-**Legend:**
-- **Hub Cluster:** Runs ArgoCD, manages deployments.
-- **Spoke Clusters:** Target clusters where applications are deployed.
-- **Git Repository:** Source of truth for manifests.
-
-This diagram shows how ArgoCD in the hub cluster pulls manifests from Git and deploys them to spoke clusters, following GitOps principles.
 
 
 ### Prerequisites
