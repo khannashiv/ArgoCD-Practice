@@ -89,6 +89,47 @@ This setup allows you to manage multiple Kubernetes clusters using GitOps princi
 - [ArgoCD CLI Installation Guide](https://argo-cd.readthedocs.io/en/stable/cli_installation/)
 - [ArgoCD CLI Reference](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/)
 
+## Commands used are as follows:
+### Cluster Creation Commands
+```bash
+eksctl create cluster --region us-east-1 --name spoke-cluster-2
+eksctl create cluster --region us-east-1 --name spoke-cluster-1  
+eksctl create cluster --region us-east-1 --name hub-cluster
+```
+### Kubernetes Context and ArgoCD Installation Commands
+```bash
+kubectl config current-context
+kubectl config get-contexts
+kubectl config use-context iam-root-account@hub-cluster.us-east-1.eksctl.io
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl get pods -n argocd
+kubectl get svc -n argocd
+kubectl get cm -n argocd
+kubectl describe cm argocd-cmd-params-cm -n argocd
+kubectl edit cm argocd-cmd-params-cm -n argocd
+kubectl edit cm argocd-cmd-params-cm -n argocd | grep insecure
+kubectl edit svc argocd-server -n argocd
+kubectl get secret -n argocd
+kubectl edit secret argocd-initial-admin-secret -n argocd
+echo -n "XXXXXXXX" | base64 -d
+```
+### ArgoCD Login and Cluster Registration Commands
+```bash
+argocd login
+argocd login 44.192.96.5:30086 --username admin --password XXXXX
+argocd cluster list
+argocd cluster list 44.192.96.5:30086
+argocd cluster add iam-root-account@spoke-cluster-1.us-east-1.eksctl.io --server 44.192.96.5:30086
+argocd cluster add iam-root-account@spoke-cluster-2.us-east-1.eksctl.io --server 44.192.96.5:30086
+argocd cluster list -o json
+```
+### Cluster Deletion Commands
+```bash
+eksctl delete cluster --region=us-east-1 --name=spoke-cluster-1
+eksctl delete cluster --region=us-east-1 --name=spoke-cluster-2
+eksctl delete cluster --region=us-east-1 --name=hub-cluster
+```
 --- 
 ## Outcomes of Hands-On
 
