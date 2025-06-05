@@ -18,6 +18,12 @@
 
 Below is a conceptual architecture diagram illustrating the hub-and-spoke model using ArgoCD and GitOps:
 
+> **Note:** GitHub and some markdown viewers do not natively render Mermaid diagrams.  
+> To view the architecture diagram, use a markdown editor or platform that supports Mermaid (such as VS Code with the Mermaid extension, or GitHub's web interface with the appropriate feature enabled).
+
+<details>
+<summary>Click to view Mermaid Architecture Diagram</summary>
+
 ```mermaid
 flowchart TD
     subgraph Hub Cluster
@@ -43,6 +49,8 @@ flowchart TD
     style C fill:#bbf,stroke:#333,stroke-width:2px
     style D fill:#cfc,stroke:#333,stroke-width:2px
 ```
+
+</details>
 
 **Legend:**
 - **Hub Cluster:** Runs ArgoCD, manages deployments.
