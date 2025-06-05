@@ -13,7 +13,45 @@
   - [Sync Applications](#sync-applications)
 
 ### Architecture Overview
-![Architecture](https://argo-cd.readthedocs.io/en/stable/assets/argocd_architecture.png)
+
+## Custom Architecture Diagram
+
+Below is a conceptual architecture diagram illustrating the hub-and-spoke model using ArgoCD and GitOps:
+
+```mermaid
+flowchart TD
+    subgraph Hub Cluster
+        A[ArgoCD Server]
+    end
+
+    subgraph Spoke Cluster 1
+        B[Kubernetes API<br>+ Applications]
+    end
+
+    subgraph Spoke Cluster 2
+        C[Kubernetes API<br>+ Applications]
+    end
+
+    D[Git Repository<br>(App Manifests)]
+
+    D -- "GitOps Sync" --> A
+    A -- "App Deploy/Sync" --> B
+    A -- "App Deploy/Sync" --> C
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#cfc,stroke:#333,stroke-width:2px
+```
+
+**Legend:**
+- **Hub Cluster:** Runs ArgoCD, manages deployments.
+- **Spoke Clusters:** Target clusters where applications are deployed.
+- **Git Repository:** Source of truth for manifests.
+
+This diagram shows how ArgoCD in the hub cluster pulls manifests from Git and deploys them to spoke clusters, following GitOps principles.
+
+
 ### Prerequisites
 - Kubernetes clusters (1 hub cluster and multiple spoke clusters)
 - ArgoCD installed on the hub cluster
@@ -162,3 +200,7 @@ eksctl delete cluster --region=us-east-1 --name=hub-cluster
 - ![ArgoCD-hub-spoke-27](./Images/ArgoCD-hub-spoke-27.png)
 
 --- 
+
+
+
+
