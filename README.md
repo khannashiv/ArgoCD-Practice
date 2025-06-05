@@ -16,7 +16,7 @@
 
 ![ArgoCD Hub-Spoke Architecture](./Images/ArgoCD-Hub-Spoke-Architecture.png)
 ### Prerequisites
-- Kubernetes clusters (1 hub cluster and multiple spoke clusters)
+- Kubernetes clusters (1 hub cluster and multiple spoke clusters in this case 2 spoke clusters)
 - ArgoCD installed on the hub cluster
 - Access to the Git repository containing the application manifests
 ### Setup Instructions
